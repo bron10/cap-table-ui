@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import { HashRouter as Router, Redirect, Route, withRouter, Switch, BrowserRouter } from 'react-router-dom';
+import CapSelect from './cap-select';
+import CapCreate from './cap-create';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <Redirect {...props} to="/select" />;
+            }}
+          />
+          <Route exact path="/select">
+            <CapSelect />
+          </Route>
+          <Route path="/create" >
+            <CapCreate />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+      
     </div>
   );
 }
