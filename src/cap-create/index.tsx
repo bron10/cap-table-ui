@@ -13,6 +13,8 @@ interface CapCreate {
 }
 
 const ListTitle = styled.h4`
+padding:0;
+margin:0;
 `
 
 const config = [{
@@ -32,7 +34,7 @@ const config = [{
   desc : `All done? Invite your lawyer to review your cap table`
 }]
 
-const Floater = styled.div`
+const Floater = styled.p`
 float :left;
 `
 
@@ -44,17 +46,16 @@ function CapCreate({}:CapCreate) {
       <SubText text="Stuck on what to do? You can always come back here to check on what else you’ll need to add to complete your cap table."/>
       <p><img src={backPath} /> <Link className = "back-link" to="/select">Upload Investment Documents</Link></p>
       
-      <List>
-        {config.map(({title, desc}) => <li>
+      {config.map(({title, desc}) => <div className="clearfix table-list">
           <Floater>
-            <img src= {ellipse} />
+            <img src= {ellipse} className="ellipse-icon"/>
           </Floater>
           <Floater>
             <ListTitle>{title}</ListTitle>
             <SubText text={desc} />
           </Floater>
-        </li>)}
-      </List>
+        </div>)}
+      
     </>
   )  
 }

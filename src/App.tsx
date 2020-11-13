@@ -5,8 +5,9 @@ import CapCreate from './cap-create';
 import './App.css';
 
 function App() {
+  const padd = (window.innerWidth) * 10/100
   return (
-    <div className="App">
+    <div className="App" style={{width:window.innerWidth - padd}}>
       <BrowserRouter>
         <Switch>
           <Route
